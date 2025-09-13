@@ -1,0 +1,182 @@
+function GetUserData(){
+   const Course = prompt('Your Course Offered  in BUK 2024/2025 session');
+  const Year =  prompt("Entry Year ");
+    const Ambition = prompt('Ambiton like Doctor or Engineer ');
+    document.querySelector('.pointer').innerHTML = `
+    <p>Your choice course : ${Course}</p>
+    <p>Your Entery BUk in: ${Year}</p>
+    <p>You want to Become : ${Ambition}</p>
+    
+    `;
+}
+function ShowName() {
+    const name = prompt('please your name below...?');
+    document.querySelector('.wellcome-text-area').innerHTML = `Hi ${name} <br>
+    as am developer I am happy to say thanks for visiting my web site .
+    <br> this will solve quadratic Equation Only using Formular Method.<br>
+    Thank you once again...
+    
+    `
+}
+function solveQuadratic() {
+    const SolveBt = document.querySelector('.Solve');
+    const ConstantA = Number(document.getElementById('constant-a').value);
+    const ConstantB = Number(document.getElementById('constant-b').value);
+    const ConstantC = Number(document.getElementById('constant-c').value);
+    const DisplayUnit = document.querySelector('.screen');
+     if (ConstantA === 0 
+         || ConstantB === 0) {
+         DisplayUnit.value = 'please write the values of a,b, and c respectively';
+     }
+     else { 
+
+    //solution of answers here
+    //first code to run
+    if (SolveBt.innerHTML === 'Solve') {
+        SolveBt.innerText = 'Solved';
+        const increment = Math.sqrt(Math.pow(ConstantB, 2) - (4 * ConstantA * ConstantC));
+        if (increment === 0) {
+            const Root1 = - ConstantB / 2 * ConstantA;
+            DisplayUnit.value = `The Root is double
+                     X = ${Root1} twice `;
+        }
+        else if (isNaN(increment)) {
+            DisplayUnit.value = `Is not Quadratic `
+        }
+
+        else {
+            const Root1 = (- (ConstantB) + increment) / (2 * ConstantA);
+            const Root2 = (- (ConstantB) - increment) / (2 * ConstantA);
+            DisplayUnit.value = `X = ${Root1} or X = ${Root2}`;
+        }
+    }
+    else {
+        SolveBt.innerText = 'Solve';
+        DisplayUnit.value = 'Please click Solve';
+    }
+}           
+                // this is the end of solution code
+  
+       /* if (Root1 === parseFloat(Root1) && Root2 === parseFloat(Root2)) {
+            DisplayUnit.value = `X = ${Math.round(Root1)} or X = ${Math.round(Root2)}`;
+        }
+        else {
+            DisplayUnit.value = `X = ${Root1} or X = ${Root2}`;
+        }*/
+       
+}
+function DeleteValue() {
+    const DisplayUnit = document.querySelector('.screen');
+  let ConstantA = document.getElementById('constant-a');
+  let   ConstantB = document.getElementById('constant-b');
+  let  ConstantC = document.getElementById('constant-c');
+    ConstantA.value = '';
+    ConstantB.value = '';
+    ConstantC.value = '';
+    const HTML = document.querySelector('.html');
+    const DeleteBt = document.querySelector('.Delete-button');
+    if (DeleteBt.innerHTML === 'Delete') {
+        DeleteBt.innerText = 'Deleted'
+        HTML.innerHTML = `No Data found`;
+        DisplayUnit.value = `was cleared`;
+
+    }
+    else {
+        DeleteBt.innerText = 'Delete';
+        HTML.innerHTML = `answer/ X=? or X=?`;
+        DisplayUnit.value = `answer/ X=? or X=?`;
+    }
+}
+function DiscribeTheSolution() {
+    const ConstantA = Number(document.getElementById('constant-a').value);
+    const ConstantB = Number(document.getElementById('constant-b').value);
+    const ConstantC = Number(document.getElementById('constant-c').value);
+    const DisplayUnit = document.querySelector('.screen');
+    const HTML = document.querySelector('.html');
+    const increment = Math.sqrt(Math.pow(ConstantB, 2) - (4 * ConstantA * ConstantC));
+    if (ConstantA === 0
+        || ConstantB === 0) {
+        DisplayUnit.value = 'please write the values of a,b, and c respectively';
+        HTML.innerHTML = `
+        <p>Access to the calculation Denied </p>
+        <p>sorry no values ... To see solution put the values </p>
+        <p>please write the values of a,b, and c respectively</p>`
+    }
+    else { 
+    // start description
+    const Root1 = (- (ConstantB) + increment) / (2 * ConstantA);
+    const Root2 = (- (ConstantB) - increment) / (2 * ConstantA);
+    if (isNaN(increment)) {
+        DisplayUnit.value = `Is not Quadratic Equation`
+    }
+    else {
+        const Root1 = (- (ConstantB) + increment) / (2 * ConstantA);
+        const Root2 = (- (ConstantB) - increment) / (2 * ConstantA);
+        DisplayUnit.value = `Look At the solutions below (is the correct answer )...`;
+    }
+    
+    if (isNaN(increment)) {
+        HTML.innerHTML = `Is not Quadratic Equation !!`;
+    }
+    else if (increment === 0) {
+        const Root1 = - ConstantB / 2 * ConstantA;
+        const HTML = document.querySelector('.html');
+        HTML.innerHTML = `<p>The Root is double.
+         X = ${Root1} twice</p>
+             <p>Data:<br><br>
+    a = ${ConstantA},<br>
+    b = ${ConstantB},<br>
+    c = ${ConstantC},
+    </p>
+    <p> From The Formular x will be </P>
+    <b>
+    x &#61; [&#45; b &#177; &#8730;(b<sup>2</sup> &#45; 4ac)] &#247; 2a.
+    </b>
+
+         <p> (-b &#177 0)/ 2 &#215; a</p>
+         <p>Subtitute the data to the formular </p>
+        <p>
+        x &#61; [&#45; &#215; ${ConstantB} &#177; &#8730;(${ConstantB}<sup>2</sup> &#45; 4 &#215; 
+        ${ConstantA} &#215; ${ConstantC})] &#247; 2 &#215 ${ConstantA}.
+        </p>
+         <p>Evaluate the Data</p>
+          <p> (-${ConstantB} &#177 0)/ 2 &#215; ${ConstantA}</p>
+         <p>therefore  the Answer will be</p>
+         <p>x = ${Root1} or X = ${Root1}</p>
+         `;
+    }
+    else {
+        HTML.innerHTML = ` 
+    <u></u>
+    <p>Data:<br><br>
+    a = ${ConstantA},<br>
+    b = ${ConstantB},<br>
+    c = ${ConstantC},
+    </p>
+<p> From The Formular x will be </P>
+<b>
+x &#61; [&#45; b &#177; &#8730;(b<sup>2</sup> &#45; 4ac)] &#247; 2a.
+</b>
+<p>Subtitute the data to the formular </p>
+<p>
+x &#61; [&#45; &#215; ${ConstantB} &#177; &#8730;(${ConstantB}<sup>2</sup> &#45; 4 &#215; ${ConstantA} &#215; ${ConstantC})] &#247; 2 &#215 ${ConstantA}.
+</p>
+<p>Evaluate the Data </p>
+<p>x &#61; [&#45; ${ConstantB} &#43; ${increment} / 2 &#215; ${ConstantA} ] </p>
+<p>x &#61; [&#45; ${ConstantB} &#45; ${increment} / 2 &#215; ${ConstantA} ] </p>
+<p>Therefore X is either </p>
+<p>X = ${Root1} or X = ${Root2}</p>
+<h5>Thank you for visited my web site .. Sulaiman Mahmud Ibrahim </h5>
+    `
+    }
+        // end discription 
+        }
+
+      
+}
+
+
+/*const increment = Math.sqrt(Math.pow(ConstantB, 2) - 4 * ConstantA * ConstantC)
+const Root1 = (-ConstantB + increment) / 2 * ConstantA;
+const Root2 = (-ConstantB - increment) / 2 * ConstantA;
+const HTML = document.querySelector('.html'); */
