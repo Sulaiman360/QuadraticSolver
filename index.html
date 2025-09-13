@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quadratic-solver</title>
+<link rel="stylesheet" href="css/quadratic.css">
+</head>
+<body>
+    <div class="pointer"></div>
+<h1 class="head-1">
+    Quadratic Equation Solution with JavaScript 
+</h1>
+<h2>
+    projected by Sulaiman Mahmud Ibrahim <br><br>
+    <span>
+        CST/24/SWE/00036 / Department of Software Engineering
+    </span>
+</h2>
+<hr>
+<p>developer wants to know your name <button onclick="
+ShowName();
+">Name</button></p>
+<h4 class="wellcome-text-area"></h4>
+<hr>
+<div class="Processor">
+<b>ax<sup>2</sup> &#43; bx &#43; c &#61; 0</b><br><br>
+<input class="screen" type="answer" placeholder="answer / x=? or x=?" readonly><br><br>
+<label id="constant-label">a= </label><input id="constant-a" type="number" >
+<label id="constant-label">b= </label><input id="constant-b"  type="number">
+<label id="constant-label">c= </label><input id="constant-c"  type="number">
+<br><br><br>
+<button class="Solve" onclick="
+ solveQuadratic();
+">
+    Solve
+</button>
+<button onclick="DiscribeTheSolution();" title="this will show you the Solution of Quadratic Equations">
+    Solution
+</button>
+<button class="Delete-button" onclick="DeleteValue();">
+    Delete
+</button>
+</div>
+<br><br>
+<div class="html">  
+    Discription of Answers
+</div>
+
+<script src="script/quadratic.js"></script>
+</body>
+</html>
